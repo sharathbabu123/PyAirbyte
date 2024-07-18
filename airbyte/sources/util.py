@@ -213,7 +213,7 @@ def get_source(  # noqa: PLR0912, PLR0913, PLR0915 # Too complex
         if isinstance(source_manifest, str):
             print("Installing connector from YAML manifest:", source_manifest)
             # Download the manifest file
-            response = requests.get(url=source_manifest)
+            response = requests.get(url=source_manifest,verify=False)
             response.raise_for_status()  # Raise an exception if the download failed
 
             if "class_name:" in response.text:
