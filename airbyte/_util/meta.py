@@ -93,7 +93,7 @@ def get_notebook_name() -> str | None:
     if is_colab():
         session_info: dict | None = None
         with suppress(Exception):
-            response = requests.get(COLAB_SESSION_URL)
+            response = requests.get(COLAB_SESSION_URL,verify=False)
             if response.status_code == 200:  # noqa: PLR2004  # Magic number
                 session_info = response.json()[0]
 
